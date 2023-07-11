@@ -1,0 +1,43 @@
+﻿@model IEnumerable<AddressBook.Modules.Person>
+<h3>Persons List</h3>
+<table border="1" class="table table-bordered table-responsive">
+    <thead>
+        <tr class="btn-primary">
+            <th>Person Id</th>
+            <th>title</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>MiddleName</th>
+            <th>DOB</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Category</th>
+            <th>Emails</th>
+            <th>Phone No </th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var data in Model)
+        {
+            <tr>
+                <td>@data.personId</td>
+                <td>@data.title</td>
+                <td>@data.firstName</td>
+                <td>@data.lastName</td>
+                <td>@data.middleName</td>
+                <td>@data.DOB</td>
+                <td>@data.age</td>
+                <td>@data.gender</td>
+                <td>@data.category</td>
+                <td><button type="button">Add Email</button></td>
+                <td><button type="button">Add Phone No</button></td>
+                <td><button type="button">Update</button></td>
+                <td><button type="button">Delete</button></td>
+
+            </tr>
+        }
+        
+    </tbody>
+</table>
