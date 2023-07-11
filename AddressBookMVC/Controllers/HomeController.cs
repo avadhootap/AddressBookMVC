@@ -16,8 +16,9 @@ namespace AddressBookMVC.Controllers
 
         public IActionResult Index()
         {
-          
-            return View();
+            PersonHelper personHelper = new PersonHelper();
+            var persons = personHelper.GetPersons();
+            return View("Person",persons);
         }
 
         public IActionResult Privacy()
@@ -38,6 +39,28 @@ namespace AddressBookMVC.Controllers
         {
             return View();
         }
+
+        public IActionResult UpdatePerson()
+        {
+            return View();
+        }
+
+        public IActionResult AddEmail()
+        {
+            return View();
+        }
+
+        public IActionResult UpdateEmail()
+        {
+            return View();
+        }
+
+        public IActionResult AddPhone() 
+        {
+            return View();
+        }
+
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

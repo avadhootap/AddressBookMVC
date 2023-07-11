@@ -16,8 +16,16 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Avadhoot\Desktop\Training\AccessTraining\AddressBookMVC\AddressBookMVC
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Avadhoot/Desktop/Training/AccessTraining/AddressBookMVC/AddressBookMVC/Views/Home/AddEmail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZGRFbWFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Avadhoot/Desktop/Training/AccessTraining/AddressBookMVC/AddressBookMVC/Views/Home/AddPerson.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZGRQZXJzb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Avadhoot/Desktop/Training/AccessTraining/AddressBookMVC/AddressBookMVC/Views/Home/AddPhone.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZGRQaG9uZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Avadhoot/Desktop/Training/AccessTraining/AddressBookMVC/AddressBookMVC/Views/Home/Index.cshtml]
@@ -34,6 +42,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Avadhoot/Desktop/Training/AccessTraining/AddressBookMVC/AddressBookMVC/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Avadhoot/Desktop/Training/AccessTraining/AddressBookMVC/AddressBookMVC/Views/Home/UpdateEmail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxVcGRhdGVFbWFpbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Avadhoot/Desktop/Training/AccessTraining/AddressBookMVC/AddressBookMVC/Views/Home/UpdatePerson.cshtml]

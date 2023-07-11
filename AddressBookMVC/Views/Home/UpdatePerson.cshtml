@@ -1,7 +1,10 @@
 ﻿<h1>Update Person</h1>
 <form>
     <label for="title">Title</label><br />
-    <input type="text" name="title" id="title" /><br />
+    <select name="title" id="title">
+        <option value="Mr.">Mr</option>
+        <option value="Mrs.">MRS</option>
+    </select>
 
     <label for="firstName">FirstName</label><br />
     <input type="text" name="firstName" id="firstName" /><br />
@@ -38,8 +41,8 @@
 
     <input type="radio" name="category" id="category" />
     <lable for="category">Other</lable> <br />
-    <input type="submit" value="Submit">
-    <input type="reset" value="Reset" />
-
+    <button type="submit">SUBMIT</button>
+    <button type="reset">RESET</button>
+    <button type="button">BACK</button>
 
 </form>
