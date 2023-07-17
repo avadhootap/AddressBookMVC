@@ -1,0 +1,26 @@
+﻿@model AddressBook.Modules.Person
+
+<h3>Add Phone</h3>
+<form method="post" asp-controller="Phone" asp-action="AddPhone">
+    <lable for="phoneNo">Phone No</lable>
+    <input type="text" name="PhoneNo" id="PhoneNo" /><br />
+
+    <lable for="phoneNoType">Type</lable><br />
+
+    <lable for="phoneNoType">Mobile</lable>
+    <input type="radio" name="phoneNoType" id="phoneNoType" value="mobile" />
+
+    <lable for="phoneNoType">Home</lable>
+    <input type="radio" name="phoneNoType" id="phoneNoType" value="Home" />
+
+    <lable for="phoneNoType">Work</lable>
+    <input type="radio" name="phoneNoType" id="phoneNoType" value="Work" />
+
+    <lable for="phoneNoType">Other</lable>
+    <input type="radio" name="phoneNoType" id="phoneNoType" value="Other" /><br />
+
+    <input type="hidden" name="personId" id="PersonId" value="@Model.personId" />
+
+    <input type="submit" />
+
+</form>

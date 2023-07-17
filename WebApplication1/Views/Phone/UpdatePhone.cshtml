@@ -1,0 +1,22 @@
+﻿@model AddressBook.Modules.PhoneNo
+<h3>Update phone No.</h3>
+<form method="post" asp-controller="Phone" asp-action="UpdatePhone">
+    <label for="phoneNo">Phone Number</label>
+    <input name="phoneNo" id="phoneNo" value="@Model.phoneNo" />
+
+    <lable for="phoneNoType">Type</lable>
+
+    <label for="phoneNoType">Home</label>
+    <input type="radio" id="phoneNoType" name="phoneNoType" value="radio" />
+
+    <label for="phoneNoType">Work</label>
+    <input type="radio" id="phoneNoType" name="phoneNoType" value="Work" />
+
+    <label for="phoneNoType">Mobile</label>
+    <input type="radio" id="phoneNoType" name="phoneNoType" value="Mobile" />
+
+    <label for="phoneNoType">Other</label>
+    <input type="radio" id="phoneNoType" name="phoneNoType" value="Other" />
+
+    <button type="submit">Submit</button>
+</form>

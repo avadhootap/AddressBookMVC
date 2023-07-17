@@ -1,0 +1,80 @@
+﻿@model IEnumerable<AddressBook.Modules.Person>
+<script>
+    function Add(){
+         window.location.href = '@Url.Action("AddPerson", "Person")'
+    }
+</script>
+<h3>Persons List</h3>
+<button type="button" onclick="Add()">Add Person</button><br /><br />
+
+@*<table border="1" class="table table-bordered table-responsive">
+    <thead>
+        <tr class="btn-primary">
+            <th>Sr.No</th>
+            <th>Title</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>MiddleName</th>
+            <th>DOB</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Category</th>
+            <th>Emails</th>
+            <th>Phone</th>
+            <th>Update</th>
+            <th>Delete</th>
+            <th>Email</th>
+            <th>Phone</th>
+        </tr>
+    </thead>
+    <tbody>*@
+        @{
+            int count = 1;
+            foreach (var data in Model)
+            {
+               
+                    <text>Sr.No : @count<br /></text>
+                    <text>Title : @data.title</text><br />
+                    <text>First Name : @data.firstName</text><br />
+                    <text>Last Name : @data.lastName</text><br />
+                    <text>Middle Name :@data.middleName</text><br />
+                    <text>DOB : @data.DOB</text><br />
+                    <text>Age : @data.age</text><br />
+                    <text>Gender : @data.gender</text><br />
+                    <text>Category : @data.category</text><br />
+                         <form method="post" asp-action="AddEmail">
+                             <input type="hidden" name="personId" value="@data.personId">
+                             <button type="submit" window.location.href='@Url.Action("AddEmail", "Person")'>Add Email</button>
+                         </form><br />
+                         <form method="post" asp-controller="Person" asp-action="AddPhone">
+                         <input type="hidden" name="personId" value="@data.personId">
+                         <button type="submit" window.location.href='@Url.Action("AddPhone","Person")'>Add Phone</button>
+                         </form><br />
+                         <form method="post" asp-action="UpdatePerson">
+                            <input type="hidden" name="personId" value="@data.personId">
+                            <button type="submit" window.location.href='@Url.Action("UpdatePerson", "Person")'>Update Person</button>
+                         </form><br />
+                
+                         <form method="post" asp-controller="Person" asp-action="DeletePerson">
+                            <input type="hidden" name="personId" value="@data.personId" />
+                            <button type="submit">Delete Person</button>
+                         </form><br />
+
+                         <form method="post" asp-action="GetEmail">
+                             <input type="hidden" name="personId" value="@data.personId">
+                            <td><button type="submit" window.location.href='@Url.Action("GetEmail", "Person")'>Show Emails</button></td>
+                         </form><br />
+
+                         <form method="post" asp-action="GetPhone">
+                         <input type="hidden" name="personId" value="@data.personId">
+                         <td><button type="submit" window.location.href='@Url.Action("GetPhone", "Person")'>Show Phone No' s</button></td>
+                         </form>
+                   
+                    <hr />
+        
+                count++;
+            }
+       
+        }
+
+

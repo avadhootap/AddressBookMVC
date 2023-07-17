@@ -1,0 +1,23 @@
+﻿@model AddressBook.Modules.Person
+
+<h3>ADD EMAIL</h3>
+<form method="post" asp-controller="Email" asp-action="AddEmail">
+    <lable for="EmailAdd">Email Address</lable>
+    <input type="text" name="EmailAdd" id="EmailAdd" /><br />
+    <lable for="EmailType">Email Type</lable><br />
+
+    <input type="radio" name="EmailType" id="EmailType" value="Work" />
+    <lable for="EmailType">Work</lable>
+
+    <input type="radio" name="EmailType" id="EmailType" value="Home" />
+    <lable for="EmailType">Home</lable>
+
+    <input type="radio" name="EmailType" id="EmailType" value="Other" />
+    <lable for="EmailType">Other</lable><br /><br />
+
+    <input type="hidden" name="personId" id="PersonId" value="@Model.personId" />
+
+    <input type="submit" />
+
+</form>
+

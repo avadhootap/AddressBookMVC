@@ -1,0 +1,47 @@
+﻿@model AddressBook.Modules.Person
+<h1>Add Person</h1>
+<form method="post" asp-controller="Person" asp-action="Add">
+    <label for="title">Title</label><br />
+    <select name="title" id="title">
+        <option value="Mr.">MR</option>
+        <option value="Mrs.">MRS</option>
+    </select><br />
+
+    <label for="firstName">FirstName</label><br />
+    <input type="text" name="firstName" id="firstName" /><br />
+
+    <label for="lastName">LastName</label><br />
+    <input type="text" name="lastName" id="lastName" /><br />
+
+    <label for="middleName">MiddleName</label><br />
+    <input type="text" name="middleName" id="middleName" /><br />
+
+    <label for="age">Age</label><br />
+    <input type="number" name="age" id="age" /><br />
+
+    <label for="dob">Date Of Birth</label><br />
+    <input type="datetime" name="dob" id="dob" /><br />
+
+    <label for="gender">Gender</label><br />
+    <input type="radio" name="gender" id="gender" value="Male" />
+    <label for="gender">Male</label>
+    
+    <input type="radio" name="gender" id="gender" value="Female" />
+    <label for="gender">Female</label>
+    
+    <input type="radio" name="gender" id="gender" value="Other"/>
+    <label for="gender">Other</label>
+    <br />
+    
+    <label for="category">Category</label><br />
+    <input type="radio" name="category" id="category" value="Business" />
+    <lable for="category">Business</lable>
+  
+    <input type="radio" name="category" id="category"  value="Family"/>
+    <lable for="category">Family</lable>
+    
+    <input type="radio" name="category" id="category" value="Other" />
+    <lable for="category">Other</lable> <br /><br />
+    <input type="submit" value="Submit">
+    
+</form>

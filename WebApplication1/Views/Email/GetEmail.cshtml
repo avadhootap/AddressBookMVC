@@ -1,0 +1,51 @@
+﻿@model IEnumerable<AddressBook.Modules.EmailAddress>
+<script>
+    function Back(){
+        window.location.href = '@Url.Action("GetPerson","Person")'
+    }
+</script>
+<h3>Email List</h3>
+
+<table border="1" class="table table-bordered table-responsive">
+    <thead>
+        <tr class="btn-primary">
+            <th>Sr.No</th>
+            <th>Email Address</th>
+            <th>Email Type</th>
+            <th>Update</th>
+            <th>Delete</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int count = 1;
+            foreach (var data in Model)
+            {
+                <tr>
+                    <td>@count</td>
+                    <td>@data.EmailAdd</td>
+                    <td>@data.EmailType</td>
+                    <td>
+                        <form method="post" asp-controller="Person" asp-action="UpdateEmail">
+                            <input type="hidden" name="EId" id="EId" value="@data.EId" />
+                            <input type="hidden" name="personId" id="personId" value="@data.personId" />
+                            <button type="submit" window.location.href='@Url.Action("UpdateEmail","Person")' >Update</button>
+                        </form>
+                    </td>
+                 
+                 <form method="post" asp-controller="Person" asp-action="DeleteEmail">
+                 <input type="hidden" name="EId" id="EId" value="@data.EId"/>
+                    <td><button type="submit" name="delete" id="delete">Delete</button></td>
+                 </form>
+                    
+                </tr>
+                count++;
+            }
+
+        }
+    </tbody>
+
+</table>
+<Button type="submit" onclick="Back()">Back</Button>
+
