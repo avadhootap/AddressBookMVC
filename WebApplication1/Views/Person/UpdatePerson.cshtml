@@ -27,31 +27,31 @@
     <input type="number" name="age" id="age" value="@Model.age" /><br />
 
     <label for="dob">Date Of Birth</label><br />
-    <input type="datetime" name="dob" id="dob" value="@Model.DOB" /><br />
+    <input type="date" name="dob" id="dob" value="@Model.DOB" /><br />
 
     <label for="gender">Gender</label><br />
 
-    
-    <input type="radio" name="gender" id="Male" value="@Model.gender" @(Model.gender.Equals("Male") ? "checked" : "")  />
+   
+    <input type="radio" name="gender" id="Male" value="Male" @(Model.gender.ToString() == "Male" ? "checked" : "") />
     <label for="Male">Male</label>
     
 
-    <input type="radio" name="gender" id="Female" value="Female" @(Model.gender.Equals("Female") ? "checked" : "") />
+    <input type="radio" name="gender" id="Female" value="Female" @(Model.gender.ToString() == "Female" ? "checked" : "") />
     <label for="Female">Female</label>
 
-    <input type="radio" name="gender" id="Other" value="Other" @(Model.gender.Equals("Other") ? "checked" : "") />
+    <input type="radio" name="gender" id="Other" value="Other" @(Model.gender.ToString() == "Other" ? "checked" : "") />
     <label for="Other">Other</label>
     <br />
 
     <label for="category">Category</label><br />
-    <input type="radio" name="category" id="category" value="Business"/>
-    <lable for="category">Business</lable>
+    <input type="radio" name="category" id="Business" value="Business" @(Model.category.ToString()=="Business" ? "checked" : "")/>
+    <lable for="Business">Business</lable>
 
-    <input type="radio" name="category" id="category" value="Family"  />
-    <lable for="category">Family</lable>
+    <input type="radio" name="category" id="Family" value="Family" @(Model.category.ToString() == "Family" ? "checked" : "") />
+    <lable for="Family">Family</lable>
 
-    <input type="radio" name="category" id="category" value="Other" />
-    <lable for="category">Other</lable> <br /><br />
+    <input type="radio" name="category" id="Other" value="Other" @(Model.category.ToString() == "Other" ? "checked" : "") />
+    <lable for="Other">Other</lable> <br /><br />
 
     <button type="submit">Update</button>
   

@@ -41,7 +41,7 @@
                     <text>DOB : @data.DOB</text><br />
                     <text>Age : @data.age</text><br />
                     <text>Gender : @data.gender</text><br />
-                    <text>Category : @data.category</text><br /><br />
+                    <text>Category : @data.category</text><br />
                          <form method="post" asp-action="AddEmail">
                              <input type="hidden" name="personId" value="@data.personId">
                              <button type="submit" window.location.href='@Url.Action("AddEmail", "Person")'>Add Email</button>

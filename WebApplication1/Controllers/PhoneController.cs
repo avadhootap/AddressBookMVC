@@ -24,7 +24,7 @@ namespace WebApplication1.Controllers
             phones.Add(phone);
             PhoneHelper phoneHelper = new PhoneHelper();
             phoneHelper.UpdatePhoneNo(phone);
-            return View("GetPerson", "Person");
+            return View("GetPhone",phones);
         }
     }
 }

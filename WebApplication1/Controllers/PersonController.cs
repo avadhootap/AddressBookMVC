@@ -120,7 +120,7 @@ namespace WebApplication1.Controllers
         {
             EmailHelper emailHelper = new EmailHelper();
             emailHelper.deleteEmail(EId);
-            return RedirectToAction("GetEmail");
+            return RedirectToAction("Getperson");
         }
 
         public IActionResult AddPhone(string personId)
@@ -149,7 +149,7 @@ namespace WebApplication1.Controllers
         {
             PhoneHelper phoneHelper = new PhoneHelper();
             phoneHelper.DeletePhoneNo(phoneNoId);
-            return RedirectToAction("GetEmail");
+            return RedirectToAction("GetPerson");
 
         }
 

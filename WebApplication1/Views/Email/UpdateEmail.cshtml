@@ -6,16 +6,16 @@
         <input type="text" name="EmailAdd" id="EmailAdd" value="@Model.EmailAdd" /><br />
         <lable for="EmailType">Email Type</lable><br />
 
-        <input type="radio" name="EmailType" id="EmailType" value="Work" />
-        <lable for="EmailType">Work</lable>
+    <input type="radio" name="EmailType" id="Work" value="Work" @(Model.EmailType.ToString()=="Work" ? "checked":"")/>
+    <lable for="Work">Work</lable>&nbsp;&nbsp;
 
-        <input type="radio" name="EmailType" id="EmailType" value="Home" />
-        <lable for="EmailType">Home</lable>
+    <input type="radio" name="EmailType" id="Home" value="Home" @(Model.EmailType.ToString() == "Home" ? "checked" : "") />
+    <lable for="Home">Home</lable>&nbsp;&nbsp;
 
-        <input type="radio" name="EmailType" id="EmailType" value="Other" />
-        <lable for="EmailType">Other</lable><br /><br />
+    <input type="radio" name="EmailType" id="Other" value="Other" @(Model.EmailType.ToString() == "Other" ? "checked" : "") />
+    <lable for="Other">Other</lable><br /><br />
 
-        <input type="hidden" name="personId" id="PersonId" value="@Model.personId" />
+    <input type="hidden" name="personId" id="PersonId" value="@Model.personId" />
 
     <button type="submit">Submit</button>
     </form><br />
