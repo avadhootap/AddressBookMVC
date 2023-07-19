@@ -1,5 +1,8 @@
-﻿@model AddressBook.Modules.EmailAddress
+﻿@*@model AddressBook.Modules.EmailAddress
 <h3>Update Email</h3>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>*@
+@*
 <form method="post" asp-controller="Email" asp-action="UpdateEmail">
     <input type="hidden" name="Eid" id="Eid" value="@Model.EId" />
         <lable for="EmailAdd">Email Address</lable>
@@ -18,5 +21,111 @@
     <input type="hidden" name="personId" id="PersonId" value="@Model.personId" />
 
     <button type="submit">Submit</button>
-    </form><br />
+    </form><br />*@
+@*<form>
+    <input type="hidden" name="Eid" id="Eid" value="@Model.EId" />
+    <lable for="EmailAdd">Email Address</lable>
+    <input type="text" name="EmailAdd" id="EmailAdd" value="@Model.EmailAdd" />
+    <br />
+    <lable for="EmailType">Email Type</lable>
+    <br />
+
+    <input type="radio" name="EmailType" id="Work" value="Work" @(Model.EmailType.ToString() == "Work" ? "checked" : "") />
+    <lable for="Work">Work</lable>&nbsp;&nbsp;
+
+    <input type="radio" name="EmailType" id="Home" value="Home" @(Model.EmailType.ToString() == "Home" ? "checked" : "") />
+    <lable for="Home">Home</lable>&nbsp;&nbsp;
+
+    <input type="radio" name="EmailType" id="Other" value="Other" @(Model.EmailType.ToString() == "Other" ? "checked" : "") />
+    <lable for="Other">Other</lable>
+    <br />
+    <br />
+
+    <input type="hidden" name="personId" id="personId" value="@Model.personId" />
+
+    <input type="button" id="updateEmail" onclick="update()" value="Update" />
+</form>*@
+@*<script>
+    function update(){
+        var email = {
+            Eid : $("#Eid").val();
+            EmailType : $("#EmailType").val();
+            personId : $("#PersonId").val();
+        };
+        $.ajax({
+            type: "POST",
+            url: "/Email/UpdateEmail",
+            data: JSON.stringify(email),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                if (response) {
+                    alert("email record updated.");
+                } else {
+                    alert("email not found.");
+                }
+            }
+            error:
+        });
+    }
+       
+</script>*@
+
+@model AddressBook.Modules.EmailAddress
+<h3>Update Email</h3>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
+<form>
+    <input type="hidden" name="EId" id="EId" value="@Model.EId" />
+    <label for="EmailAdd">Email Address</label>
+    <input type="text" name="EmailAdd" id="EmailAdd" value="@Model.EmailAdd" />
+    <br />
+    <label for="EmailType">Email Type</label>
+    <br />
+    <input type="radio" name="EmailType" id="EmailTypes" value="Work" @(Model.EmailType.ToString() == "Work" ? "checked" : "") />
+    <label for="Work">Work</label>&nbsp;&nbsp;
+    <input type="radio" name="EmailType" id="EmailType" value="Home" @(Model.EmailType.ToString() == "Home" ? "checked" : "") />
+    <label for="Home">Home</label>&nbsp;&nbsp;
+    <input type="radio" name="EmailType" id="EmailTypee" value="Other" @(Model.EmailType.ToString() == "Other" ? "checked" : "") />
+    <label for="Other">Other</label>
+    <br />
+    <br />
+    <input type="hidden" name="personId" id="personId" value="@Model.personId" />
+    <input type="button" id="updateEmail" onclick="update()" value="Update" />
+    <input type="button" onclick="Back()" value="Back"/>
+</form>
+<script>
+    function update() {
+            var email = {
+            EId: $("#EId").val(),
+            EmailAdd: $("#EmailAdd").val(),
+            EmailType: $("input[type='radio']:checked").val(),
+            personId: $("#personId").val()
+        };
+        $.ajax({
+            type: "POST",
+            url: "/Email/UpdateEmail",
+            data: email,
+            success: function (response) {
+                if (response) {
+                    alert("Email record updated.");
+                } else {
+                    alert("Email not found.");
+                }
+            },
+            error: function () {
+                alert("error updating the email.");
+            }
+
+        });
+        console.log(JSON.stringify(email))
+       
+    }
+
+    function Back(){
+        window.location.href = '@Url.Action("GetPerson", "Person")'
+    }
+        
+</script>
+
 

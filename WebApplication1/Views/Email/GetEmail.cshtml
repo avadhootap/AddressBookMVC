@@ -1,9 +1,33 @@
 ﻿@model IEnumerable<AddressBook.Modules.EmailAddress>
 <script>
-    function Back(){
+    function Back() {
         window.location.href = '@Url.Action("GetPerson","Person")'
     }
 </script>
+<script>
+    function DeleteEmail() {
+        var Id=$("#EId").val();
+        $.ajax({
+            type: "POST",
+            url: "/Person/DeleteEmail",
+            data: {EId:Id},
+            dataType:"",
+            success: function (response) {
+                if (response) {
+                    alert("Deleted SuccessFully.");
+                } else {
+                    alert("Failed.");
+                }
+            },
+            error: function () {
+                alert("Error Deleting");
+            }
+        });
+        location.reload();
+    }
+</script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
 <h3>Email List</h3>
 
 <table border="1" class="table table-bordered table-responsive">
@@ -33,11 +57,10 @@
                             <button type="submit" window.location.href='@Url.Action("UpdateEmail","Person")' >Update</button>
                         </form>
                     </td>
-                 
-                 <form method="post" asp-controller="Person" asp-action="DeleteEmail">
-                 <input type="hidden" name="EId" id="EId" value="@data.EId"/>
-                    <td><button type="submit" name="delete" id="delete">Delete</button></td>
-                 </form>
+                 <td>
+                        <input type="hidden" name="EId" id="EId" value="@data.EId" />
+                        <input type="button" id="DeleteEmail" onclick="DeleteEmail()" value="Delete" />
+                 </td>
                     
                 </tr>
                 count++;
@@ -45,7 +68,6 @@
 
         }
     </tbody>
-
 </table>
 <Button type="submit" onclick="Back()">Back</Button>
 
