@@ -2,7 +2,7 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script type="text/javascript" src="https://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
 <h3>Update phone No.</h3>
-<form method="post" asp-controller="Phone" asp-action="UpdatePhone">
+<form>
     <label for="phoneNo">Phone Number</label>
     <input type="hidden" name="phoneNoId" id="phoneNoId" value="@Model.phoneNoId" />
     <input name="phoneNo" id="phoneNo" value="@Model.phoneNo" /><br />
@@ -41,10 +41,11 @@
         type:"POST",
         url:"/Phone/UpdatePhone",
         data: phone,
-        dataType:"",
         success: function (response) {
             if (response) {
                 alert("Phone record updated.");
+                var Id='@Model.personId';
+                    window.location.href='@Url.Action("GetPhone","Person")?personId='+Id;
             } else {
                 alert("Phone not found.");
             }
@@ -53,6 +54,7 @@
             alert("error updating the Phone.");
         }
     });
+       
     }
 
 </script>

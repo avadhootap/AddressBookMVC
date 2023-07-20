@@ -11,7 +11,6 @@
             type: "POST",
             url: "/Person/DeleteEmail",
             data: {EId:Id},
-            dataType:"",
             success: function (response) {
                 if (response) {
                     alert("Deleted SuccessFully.");
@@ -51,14 +50,13 @@
                     <td>@data.EmailAdd</td>
                     <td>@data.EmailType</td>
                     <td>
-                        <form method="post" asp-controller="Person" asp-action="UpdateEmail">
+                        <form method="post" asp-action="UpdateEmail" asp-controller="Person">
                             <input type="hidden" name="EId" id="EId" value="@data.EId" />
                             <input type="hidden" name="personId" id="personId" value="@data.personId" />
                             <button type="submit" window.location.href='@Url.Action("UpdateEmail","Person")' >Update</button>
                         </form>
                     </td>
                  <td>
-                        <input type="hidden" name="EId" id="EId" value="@data.EId" />
                         <input type="button" id="DeleteEmail" onclick="DeleteEmail()" value="Delete" />
                  </td>
                     

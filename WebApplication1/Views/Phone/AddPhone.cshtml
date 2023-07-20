@@ -1,9 +1,9 @@
-﻿@model AddressBook.Modules.Person
-
+﻿@model AddressBook.Modules.PhoneNo
 <h3>Add Phone</h3>
 <form method="post" asp-controller="Phone" asp-action="AddPhone">
     <lable for="phoneNo">Phone No</lable>
     <input type="text" name="PhoneNo" id="PhoneNo" /><br />
+    @Html.ValidationMessageFor(item=>item)
 
     <lable for="phoneNoType">Type</lable><br />
 

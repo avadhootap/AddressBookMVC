@@ -90,25 +90,33 @@
     <label for="Other">Other</label>
     <br />
     <br />
-    <input type="hidden" name="personId" id="personId" value="@Model.personId" />
-    <input type="button" id="updateEmail" onclick="update()" value="Update" />
+    @*<input type="hidden" name="personId" id="personId" value="@Model.personId" />*@
+    <input type="button" id="updateEmail" onclick="update(event)" data-personId='@Model.personId' value="Update" />
     <input type="button" onclick="Back()" value="Back"/>
 </form>
+
 <script>
-    function update() {
+    function update(event) {
+        var element = event.currentTarget;
+        var obj=$(element);
+        console.log("Obj : "+obj);
+        console.log("Element : "+element);
             var email = {
             EId: $("#EId").val(),
             EmailAdd: $("#EmailAdd").val(),
             EmailType: $("input[type='radio']:checked").val(),
-            personId: $("#personId").val()
+            personId: $("#updateEmail").attr('data-personId')
         };
         $.ajax({
             type: "POST",
             url: "/Email/UpdateEmail",
             data: email,
             success: function (response) {
+                console.log("Response : "+response);
                 if (response) {
                     alert("Email record updated.");
+                    var Id='@Model.personId';
+                    window.location.href='@Url.Action("GetEmail","Person")?personId='+Id;
                 } else {
                     alert("Email not found.");
                 }

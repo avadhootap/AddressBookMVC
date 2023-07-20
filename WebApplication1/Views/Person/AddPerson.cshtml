@@ -1,4 +1,5 @@
 ﻿@model AddressBook.Modules.Person
+<h3>@ViewBag.Result</h3>
 <h1>Add Person</h1>
 <form method="post" asp-controller="Person" asp-action="Add">
     <label for="title">Title</label><br />
@@ -9,18 +10,23 @@
 
     <label for="firstName">FirstName</label><br />
     <input type="text" name="firstName" id="firstName" /><br />
+    @Html.ValidationMessageFor(model => model.firstName)<br />
 
     <label for="lastName">LastName</label><br />
     <input type="text" name="lastName" id="lastName" /><br />
+    @Html.ValidationMessageFor(item=>item.lastName)<br />
 
     <label for="middleName">MiddleName</label><br />
     <input type="text" name="middleName" id="middleName" /><br />
+    @Html.ValidationMessageFor(item=>item.middleName)<br />
 
     <label for="age">Age</label><br />
     <input type="number" name="age" id="age" /><br />
+    @Html.ValidationMessageFor(item=>item.age)<br />
 
     <label for="dob">Date Of Birth</label><br />
     <input type="date" name="dob" id="dob" /><br />
+    @Html.ValidationMessageFor(item=>item.DOB)<br />
 
     <label for="gender">Gender</label><br />
 
@@ -33,6 +39,7 @@
     <input type="radio" name="gender" id="gender" value="Other"/>
     <label for="gender">Other</label>&nbsp;&nbsp;
     <br />
+    @Html.ValidationMessageFor(item=>item.gender)<br />
     
     <label for="category">Category</label><br />
     <input type="radio" name="category" id="category" value="Business" />
@@ -42,7 +49,8 @@
     <lable for="category">Family</lable>&nbsp;&nbsp;
     
     <input type="radio" name="category" id="category" value="Other" />
-    <lable for="category">Other</lable> <br /><br />
+    <lable for="category">Other</lable> <br />
+    @Html.ValidationMessageFor(item=>item.category)<br />
     <input type="submit" value="Submit">
     
 </form>

@@ -9,12 +9,14 @@ namespace WebApplication1.Controllers
     {
         public IActionResult Index()
         {
+        
             return View();
         }
 
         [HttpGet]
         public IActionResult GetPerson()
         {
+        
             PersonHelper personHelper = new PersonHelper();
             var persons = personHelper.GetPersons();
             return View(persons);
@@ -22,7 +24,7 @@ namespace WebApplication1.Controllers
 
         public IActionResult AddPerson()
         {
-          
+           
             return View("AddPerson");
         }
 
@@ -45,14 +47,22 @@ namespace WebApplication1.Controllers
             
         }
 
-      
-
         [HttpPost]
+
         public IActionResult Add(Person person)
         {
-            PersonHelper personHelper = new PersonHelper();
-            personHelper.addPerson(person);
-            return RedirectToAction("GetPerson");
+            if (ModelState.IsValid)
+            {
+                PersonHelper personHelper = new PersonHelper();
+                personHelper.addPerson(person);
+                return RedirectToAction("GetPerson");
+                
+            }
+            else
+            {
+                return View("AddPerson");
+            }
+         
         }
 
         [HttpPost]
@@ -91,7 +101,6 @@ namespace WebApplication1.Controllers
 
         public IActionResult GetEmail(string personId)
         {
-            Console.WriteLine(personId);
             EmailHelper emailhelper=new EmailHelper();
             List<EmailAddress> emailAddress = emailhelper.GetAllEmails(personId);
             foreach(EmailAddress email in emailAddress)
@@ -103,8 +112,7 @@ namespace WebApplication1.Controllers
 
         public IActionResult UpdateEmail(string EId,string personId)
         {
-            Console.WriteLine("Email id : "+EId);
-            Console.WriteLine("Person Id : "+ personId);
+
             EmailHelper emailHelper=new EmailHelper();
             List<EmailAddress> emailAddress = emailHelper.GetAllEmails(personId);
             foreach (EmailAddress email in emailAddress)

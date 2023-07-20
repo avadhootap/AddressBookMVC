@@ -4,6 +4,28 @@
         window.location.href = '@Url.Action("GetPerson","Person")'
     }
 </script>
+<script>
+    function Delete(){
+        var Id = $("#phoneNoId").val();
+        $.ajax({
+            type:"POST",
+            url: "/Person/DeletePhone",
+            data: { phoneNoId:Id },
+            success:function(response){
+                if(response){
+                    alert("Phone No Deleted Succesfully...!")
+                }
+                else(
+                    alert("Failed to Delete Phone No")
+                )
+            },
+            error:function(){
+                alert("Failed to Delete...")
+            }
+        });
+        location.reload();
+    }
+</script>
 <table border="1" class="table table-bordered table-responsive">
     <thead>
         <tr class="btn-primary">
@@ -31,11 +53,7 @@
                             <button type="submit" window.location.href='@Url.Action("UpdatePhone","Person")'>Update</button>
                         </form>
                     </td>
-
-                    <form method="post" asp-controller="Person" asp-action="DeletePhone">
-                        <input type="hidden" name="phoneNoId" id="phoneNoId" value="@data.phoneNoId" />
-                    <td><button type="submit" name="delete" id="delete">Delete</button></td>
-                    </form>
+                    <td><input type="button" onclick="Delete()" id="delete" value="Delete" /></td>
 
                 </tr>
                 count++;
