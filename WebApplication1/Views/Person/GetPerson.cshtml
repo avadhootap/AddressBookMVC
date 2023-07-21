@@ -4,74 +4,117 @@
          window.location.href = '@Url.Action("AddPerson", "Person")'
     }
 </script>
-<h3>Persons List</h3>
-<button type="button" onclick="Add()">Add Person</button><br /><br />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+    .main{
+        display:grid;
+        grid-template-columns: 50px 50px repeat(11,1fr);
+        grid-gap: 2px;
+        background-color:white;
+        padding:2px;
+    }
+    .main > div{
+        background-color:black;
+        text-align:center;
+        padding:10px 0px;
+        font-size: 20px;
+        color:lightgray
+    }
 
-@*<table border="1" class="table table-bordered table-responsive">
-    <thead>
-        <tr class="btn-primary">
-            <th>Sr.No</th>
-            <th>Title</th>
-            <th>FirstName</th>
-            <th>LastName</th>
-            <th>MiddleName</th>
-            <th>DOB</th>
-            <th>Age</th>
-            <th>Gender</th>
-            <th>Category</th>
-            <th>Emails</th>
-            <th>Phone</th>
-            <th>Update</th>
-            <th>Delete</th>
-            <th>Email</th>
-            <th>Phone</th>
-        </tr>
-    </thead>
-    <tbody>*@
+    .secondary {
+        display: grid;
+        grid-template-columns: 50px 50px repeat(11,1fr);
+        grid-gap: 2px;
+        background-color: white;
+        padding: 2px;
+    }
+
+       
+    .secondary > div {
+            background-color: lavender;
+            text-align: center;
+            padding: 10px 0px;
+            font-size: 20px;
+            color: darkblue;
+    }
+
+    .btn{
+        background-color: #4CAF50;
+    }
+    .btn:hover{
+        background-color:green;
+    }
+</style>
+<br />
+<h3 style="text-align:center; color:darkblue">PERSON LIST</h3>
+<hr />
+<button type="button" class="btn" onclick="Add()">ADD PERSON</button>
+<br />
+<br />
+
+    <div class="main">
+        <div class="sr">Sr.No</div>
+        <div class="title">Title</div>
+        <div class="firstname">First Name</div>
+        <div class="lastname">Last Name</div>
+        <div class="middlename">Middle Name</div>
+        <div class="dob">DOB</div>
+        <div class="age">Age</div>
+        <div class="gender">Gender</div>
+        <div class="category">Category</div>
+        <div class="email"> Phone</div>
+        <div class="phone">Email</div>
+        <div class="update">Update</div>
+        <div class="delete">Delete</div>
+
+    </div>
+
+
         @{
+
             int count = 1;
             foreach (var data in Model)
             {
-               
-                    <text>Sr.No : @count<br /></text>
-                    <text>Title : @data.title</text><br />
-                    <text>First Name : @data.firstName</text><br />
-                    <text>Last Name : @data.lastName</text><br />
-                    <text>Middle Name :@data.middleName</text><br />
-                    <text>DOB : @data.DOB</text><br />
-                    <text>Age : @data.age</text><br />
-                    <text>Gender : @data.gender</text><br />
-                    <text>Category : @data.category</text><br /><br />
-                         <form method="post" asp-action="AddEmail">
-                             <input type="hidden" name="personId" value="@data.personId">
-                             <button type="submit" window.location.href='@Url.Action("AddEmail", "Person")'>Add Email</button>
-                         </form><br />
-                         <form method="post" asp-controller="Person" asp-action="AddPhone">
-                         <input type="hidden" name="personId" value="@data.personId">
-                         <button type="submit" window.location.href='@Url.Action("AddPhone","Person")'>Add Phone</button>
-                         </form><br />
-                         <form method="post" asp-action="UpdatePerson">
-                            <input type="hidden" name="personId" value="@data.personId">
-                            <button type="submit" window.location.href='@Url.Action("UpdatePerson", "Person")'>Update Person</button>
-                         </form><br />
-                
-                         <form method="post" asp-controller="Person" asp-action="DeletePerson">
-                            <input type="hidden" name="personId" value="@data.personId" />
-                            <button type="submit">Delete Person</button>
-                         </form><br />
+            <div class="secondary">
+            <div class="count">@count</div>
+            <div class="titles">@data.title</div>
+            <div class="fname">@data.firstName</div>
+            <div class="lname">@data.lastName</div>
+            <div class="mname">@data.middleName</div>
+            <div class="date">@data.DOB</div>
+            <div class="ages">@data.age</div>
+            <div class="gen">@data.gender</div>
+            <div class="cat">@data.category</div>
+            <div class="btn1">
+                <form method="post" asp-action="GetPhone">
+                    <input type="hidden" name="personId" value="@data.personId">
+                    <button type="submit" class="material-icons" style="border:0px;background-color:lavender" window.location.href='@Url.Action("GetPhone", "Person")'>remove_red_eye</button>
+                </form>
+              
+            </div>
 
-                         <form method="post" asp-action="GetEmail">
-                             <input type="hidden" name="personId" value="@data.personId">
-                            <td><button type="submit" window.location.href='@Url.Action("GetEmail", "Person")'>Show Emails</button></td>
-                         </form><br />
+            <div>
+                <form method="post" asp-action="GetEmail">
+                    <input type="hidden" name="personId" value="@data.personId">
+                    <button type="submit" class="material-icons" style="border:0px;background-color:lavender" window.location.href='@Url.Action("GetEmail", "Person")'>remove_red_eye</button>
+                </form>
+              
+            </div>
+            <div>
+                <form method="post" asp-action="UpdatePerson">
+                    <input type="hidden" name="personId" value="@data.personId">
+                    <button type="submit" class="material-icons" style="border:0px;background-color:lavender" window.location.href='@Url.Action("UpdatePerson", "Person")'>edit</button>
+                </form>
+            </div>
+            <div>
+                <form method="post"  asp-action="DeletePerson">
+                    <input type="hidden" name="personId" value="@data.personId" />
+                    <button type="submit" class="material-icons" style="color:red; border:0px;background-color:lavender">delete_sweep</button>
+                </form>
+            </div>
 
-                         <form method="post" asp-action="GetPhone">
-                         <input type="hidden" name="personId" value="@data.personId">
-                         <td><button type="submit" window.location.href='@Url.Action("GetPhone", "Person")'>Show Phone No' s</button></td>
-                         </form>
-                   
-                    <hr />
-        
+             </div>
+
                 count++;
             }
        

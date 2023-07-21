@@ -12,23 +12,24 @@ namespace AddressBook.Modules
         [Required(ErrorMessage ="Please enter Firstname")]
         public string firstName { get; set; }
 
-        [Required(ErrorMessage = "Please enter lastname")]
+        [Required(ErrorMessage = "Please enter Lastname")]
         public string lastName { get; set; }
 
-        [Required(ErrorMessage = "Please enter middleName")]
+        [Required(ErrorMessage = "Please enter MiddleName")]
         public string middleName { get; set; }
 
-        [Required(ErrorMessage = "Please enter age")]
-        public int age { get; set; }
+        [Required(ErrorMessage ="Please enter Age")]
+        [Range(0,100,ErrorMessage ="Age must be Between 0 to 100")]
+        public int? age { get; set; }
 
         [Required(ErrorMessage = "Please enter DOB")]
-        public DateTime DOB { get; set; }
+        public DateTime? DOB { get; set; }
 
-        [Required(ErrorMessage = "Please enter gender")]
-        public GenderType gender { get; set; }
+        [Required(ErrorMessage = "Please enter Gender")]
+        public GenderType? gender { get; set; }
 
-        [Required(ErrorMessage = "Please enter category")]
-        public CategoryType category { get; set; }
+        [Required(ErrorMessage = "Please enter Category")]
+        public CategoryType? category { get; set; }
         bool IsDelete.isDelete { get; set; } = false;
 
         public Person()

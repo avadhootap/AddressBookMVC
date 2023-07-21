@@ -1,56 +1,70 @@
 ﻿@model AddressBook.Modules.Person
 <h3>@ViewBag.Result</h3>
-<h1>Add Person</h1>
-<form method="post" asp-controller="Person" asp-action="Add">
-    <label for="title">Title</label><br />
-    <select name="title" id="title">
-        <option value="Mr.">MR</option>
-        <option value="Mrs.">MRS</option>
-    </select><br />
+<h1 style ="text-align:center; color:darkblue">ADD PERSON</h1>
+<hr />
+<style>
+    .addPerson{
+        width: 70%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
 
-    <label for="firstName">FirstName</label><br />
-    <input type="text" name="firstName" id="firstName" /><br />
-    @Html.ValidationMessageFor(model => model.firstName)<br />
+</style>
+<div>
+    <form method="post" asp-controller="Person" asp-action="Add">
+        <label for="title">Title</label><br />
+        <select name="title" class="addPerson" id="title">
+            <option value="Mr.">MR</option>
+            <option value="Mrs.">MRS</option>
+        </select><br />
 
-    <label for="lastName">LastName</label><br />
-    <input type="text" name="lastName" id="lastName" /><br />
-    @Html.ValidationMessageFor(item=>item.lastName)<br />
+        <label for="firstName">FirstName</label><br />
+        <input type="text" class="addPerson" name="firstName" id="firstName" placeholder="FirstName" />&nbsp;&nbsp;&nbsp;
+        @Html.ValidationMessageFor(model => model.firstName,"", new { @class = "text-danger" })<br />
 
-    <label for="middleName">MiddleName</label><br />
-    <input type="text" name="middleName" id="middleName" /><br />
-    @Html.ValidationMessageFor(item=>item.middleName)<br />
+        <label for="lastName">LastName</label><br />
+        <input type="text" class="addPerson" name="lastName" id="lastName" placeholder="LastName"/>&nbsp;&nbsp;&nbsp;
+        @Html.ValidationMessageFor(item=>item.lastName,"", new { @class = "text-danger" })<br />
 
-    <label for="age">Age</label><br />
-    <input type="number" name="age" id="age" /><br />
-    @Html.ValidationMessageFor(item=>item.age)<br />
+        <label for="middleName">MiddleName</label><br />
+        <input type="text" class="addPerson" name="middleName" id="middleName" placeholder="MiddleName"/>&nbsp;&nbsp;&nbsp;
+        @Html.ValidationMessageFor(item=>item.middleName,"", new { @class = "text-danger" })<br />
 
-    <label for="dob">Date Of Birth</label><br />
-    <input type="date" name="dob" id="dob" /><br />
-    @Html.ValidationMessageFor(item=>item.DOB)<br />
+        <label for="age">Age</label><br />
+        <input type="number" class="addPerson" name="age" id="age" placeholder="Age"/>&nbsp;&nbsp;&nbsp;
+        @Html.ValidationMessageFor(item=>item.age,"", new { @class = "text-danger" })<br />
 
-    <label for="gender">Gender</label><br />
+        <label for="dob">Date Of Birth</label><br />
+        <input type="date" class="addPerson" name="dob" id="dob" placeholder="Date of Birth"/>&nbsp;&nbsp;&nbsp;
+        @Html.ValidationMessageFor(item=>item.DOB,"", new { @class = "text-danger" })<br />
 
-    <input type="radio" name="gender" id="gender" value="Male" />
-    <label for="gender">Male</label>&nbsp;&nbsp;
-    
-    <input type="radio" name="gender" id="gender" value="Female" />
-    <label for="gender">Female</label>&nbsp;&nbsp;
-    
-    <input type="radio" name="gender" id="gender" value="Other"/>
-    <label for="gender">Other</label>&nbsp;&nbsp;
-    <br />
-    @Html.ValidationMessageFor(item=>item.gender)<br />
-    
-    <label for="category">Category</label><br />
-    <input type="radio" name="category" id="category" value="Business" />
-    <lable for="category">Business</lable>&nbsp;&nbsp;
-  
-    <input type="radio" name="category" id="category"  value="Family"/>
-    <lable for="category">Family</lable>&nbsp;&nbsp;
-    
-    <input type="radio" name="category" id="category" value="Other" />
-    <lable for="category">Other</lable> <br />
-    @Html.ValidationMessageFor(item=>item.category)<br />
-    <input type="submit" value="Submit">
-    
-</form>
+        <label for="gender">Gender </label><br />
+
+        <input type="radio" name="gender" id="gender" value="Male" />
+        <label for="gender">Male</label>&nbsp;&nbsp;
+
+        <input type="radio" name="gender" id="gender" value="Female" />
+        <label for="gender">Female</label>&nbsp;&nbsp;
+
+        <input type="radio" name="gender" id="gender" value="Other" />
+        <label for="gender">Other</label>&nbsp;&nbsp;&nbsp;
+        @Html.ValidationMessageFor(item=>item.gender,"", new { @class = "text-danger" })<br />
+
+
+        <label for="category">Category</label><br />
+        <input type="radio" name="category" id="category" value="Business" />
+        <lable for="category">Business</lable>&nbsp;&nbsp;
+
+        <input type="radio" name="category" id="category" value="Family" />
+        <lable for="category">Family</lable>&nbsp;&nbsp;
+
+        <input type="radio" name="category" id="category" value="Other" />
+        <lable for="category">Other</lable>&nbsp;&nbsp;&nbsp;
+        @Html.ValidationMessageFor(item=>item.category,"", new { @class = "text-danger" })<br /><br />
+        <input type="submit" style="background-color:green; border:0px" value="Submit">
+    </form>
+</div>
