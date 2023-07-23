@@ -1,6 +1,11 @@
 ﻿@model AddressBook.Modules.Person
 <h3>Add Phone</h3>
-<form method="post" asp-controller="Phone" asp-action="AddPhone">
+<script>
+     function add(personId) {
+        window.location.href = '@Url.Action("GetPhone", "Person")' + '?personId=' + personId;
+    }
+</script>
+<form method="post" asp-controller="Phone" asp-action="AddPhone" onsubmit="add('@Model.personId')">
     <lable for="phoneNo">Phone No</lable>
     <input type="text" name="PhoneNo" id="PhoneNo" /><br />
 
@@ -24,6 +29,7 @@
 
     <input type="hidden" name="personId" id="PersonId" value="@Model.personId" />
 
-    <input type="submit" />
-
+    <input type="submit"/>
 </form>
+
+<br />

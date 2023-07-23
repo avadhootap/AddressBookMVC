@@ -58,9 +58,16 @@
                 </tr>
                 count++;
             }
-
+           
         }
     </tbody>
 
 </table>
+
+        <form method="post" asp-controller="Person" asp-action="AddPhone">
+        <input type="hidden" name="personId" value="@Model.FirstOrDefault()?.personId">
+        <button type="submit" window.location.href='@Url.Action("AddPhone","Person")'>Add Phone</button>
+        </form>
+        <br />
+
 <Button type="submit" onclick="Back()">Back</Button>

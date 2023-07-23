@@ -15,7 +15,7 @@ namespace WebApplication1.Controllers
         {
             PhoneHelper phoneHelper = new PhoneHelper();    
             phoneHelper.AddPhone(phone);
-            return RedirectToAction("GetPerson","Person");
+            return RedirectToAction("GetPhone","Person",phone.personId);
         }
 
         public IActionResult UpdatePhone(PhoneNo phone)
