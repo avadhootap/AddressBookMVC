@@ -2,6 +2,11 @@
 <h3>@ViewBag.Result</h3>
 <h1 style ="text-align:center; color:darkblue">ADD PERSON</h1>
 <hr />
+<script>
+    function back(){
+        window.location.href = '@Url.Action("GetPerson", "Person")'
+    }
+</script>
 <style>
     .addPerson{
         width: 70%;
@@ -12,6 +17,24 @@
         border-radius: 4px;
         box-sizing: border-box;
     }
+
+    .btn {
+        background-color: #4CAF50;
+    }
+
+    .btn:hover {
+            background-color: green;
+    }
+
+    .btn1 {
+        background-color: black ;
+        color:antiquewhite
+        
+    }
+
+        .btn1:hover {
+            background-color: darkgrey;
+        }
 
 </style>
 <div>
@@ -65,6 +88,8 @@
         <input type="radio" name="category" id="category" value="Other" />
         <lable for="category">Other</lable>&nbsp;&nbsp;&nbsp;
         @Html.ValidationMessageFor(item=>item.category,"", new { @class = "text-danger" })<br /><br />
-        <input type="submit" style="background-color:green; border:0px" value="Submit">
-    </form>
+        <input type="submit" class="btn" value="Submit">
+        
+    </form><br />
+    <input type="submit" class="btn1" onclick="back()" style="border:0px;" value="Back" />
 </div>

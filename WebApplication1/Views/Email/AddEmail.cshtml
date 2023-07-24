@@ -1,9 +1,48 @@
 ﻿@model AddressBook.Modules.Person
 
-<h3>ADD EMAIL</h3>
+<h3 style="text-align:center; color:darkblue">ADD EMAIL</h3>
+<hr />
+
+<script>
+    function Back(){
+        var Id = '@Model.personId';
+        window.location.href = '@Url.Action("GetEmail","Person")?personId=' + Id;
+    }
+    
+</script>
+
+<style>
+    .add {
+        width: 50%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    .btn {
+        background-color: #4CAF50;
+    }
+
+        .btn:hover {
+            background-color: green;
+        }
+
+    .btn1 {
+        background-color: grey;
+        color: aliceblue;
+        border: 0px
+    }
+
+        .btn1:hover {
+            background-color: black;
+        }
+</style>
 <form method="post" asp-controller="Email" asp-action="AddEmail">
-    <lable for="EmailAdd">Email Address</lable>
-    <input type="text" name="EmailAdd" id="EmailAdd" /><br />
+    <lable for="EmailAdd">Email Address</lable><br />
+    <input type="text" class="add" name="EmailAdd" id="EmailAdd" /><br />
     <lable for="EmailType">Email Type</lable><br />
 
     <input type="radio" name="EmailType" id="EmailType" value="Work" />
@@ -17,7 +56,8 @@
 
     <input type="hidden" name="personId" id="PersonId" value="@Model.personId" />
 
-    <input type="submit" />
+    <input type="submit" class="btn"/>
 
-</form>
+</form><br />
+<input type="button" class="btn1"value="Back" onclick="Back()" />
 

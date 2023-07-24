@@ -3,13 +3,12 @@
     function Add(){
          window.location.href = '@Url.Action("AddPerson", "Person")'
     }
-    function confirmDelete() {
-        
-        var result = window.confirm("Are you sure you want to delete this person?");
-        return result;
-    }
 </script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href=“https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css” rel=“stylesheet”>
+<script src=“https://code.jquery.com/jquery-1.10.2.js”></script>
+<script src=“https://code.jquery.com/ui/1.10.4/jquery-ui.js”></script>
+
 <style>
     .main,.secondary{
         display:grid;
@@ -31,7 +30,7 @@
             background-color: lavender;
             text-align: center;
             padding: 10px 0px;
-            font-size: 10px;
+            font-size: 15px;
             color: darkblue;
     }
 
@@ -102,9 +101,10 @@
                 </form>
             </div>
             <div>
-                <form method="post" onsubmit="return confirmDelete();" asp-action="DeletePerson">
+                <div id="dailog" title="Are you sure you want to delete !!!"></div>
+                <form method="post" asp-action="DeletePerson">
                     <input type="hidden" name="personId" value="@data.personId" />
-                    <button type="submit" class="material-icons" style="color:red; border:0px;background-color:lavender">delete_sweep</button>
+                    <button type="submit" id="delete" class="material-icons" style="color:red; border:0px;background-color:lavender">delete_sweep</button>
                 </form>
             </div>
 
@@ -114,5 +114,19 @@
             }
        
         }
+        <script>
+            $(function(){
+                $("#dailog").dialog({
+                    autoOpen:false,
+                    buttons:{
+                OK: function () { $(this).dialog("close"); }
+                    },
+                    title:"Delete..."
 
-
+                });
+        $("#delete").click(function (e) {
+            e.preventDefault();
+                    $("#dailog").dialog("open");
+                });
+            });
+        </script>

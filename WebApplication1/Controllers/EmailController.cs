@@ -11,8 +11,9 @@ namespace WebApplication1.Controllers
         {
             Console.WriteLine("person id in Email: "+email.personId);
             EmailHelper emailHelper = new EmailHelper();
+            string personId=email.personId;
             emailHelper.AddEmail(email);
-            return RedirectToAction("GetPerson", "Person");
+            return RedirectToAction("GetEmail", "Person", new {personId});
         }
 
         [HttpPost]

@@ -1,9 +1,13 @@
 ﻿@model IEnumerable<AddressBook.Modules.PhoneNo>
+<h3 style="text-align:center; color:darkblue">PHONE NO LIST</h3>
+<hr />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <script>
     function Back() {
         window.location.href = '@Url.Action("GetPerson","Person")'
     }
 </script>
+
 <script>
     function Delete(){
         var Id = $("#phoneNoId").val();
@@ -26,11 +30,34 @@
         location.reload();
     }
 </script>
+
+<style>
+    .btn {
+        background-color: #4CAF50;
+    }
+
+        .btn:hover {
+            background-color: green;
+        }
+
+    .btn1 {
+        background-color: #ccc;
+        color: black;
+        border-radius:8px;
+        border: 0px
+    }
+
+   .btn1:hover {
+            background-color: black;
+            color:white;
+    }
+</style>
+
 <table border="1" class="table table-bordered table-responsive">
     <thead>
-        <tr class="btn-primary">
-            <th>Sr.No</th>
-            <th>Phone NO</th>
+        <tr class="btn-secondary" style="text-align:center">
+            <th >Sr.No</th>
+            <th >Phone NO</th>
             <th>Type</th>
             <th>Update</th>
             <th>Delete</th>
@@ -42,7 +69,7 @@
             int count = 1;
             foreach (var data in Model)
             {
-                <tr>
+                <tr style="text-align:center;color:darkblue">
                     <td>@count</td>
                     <td>@data.phoneNo</td>
                     <td>@data.phoneNoType</td>
@@ -50,10 +77,10 @@
                         <form method="post" asp-controller="Person" asp-action="UpdatePhone">
                             <input type="hidden" name="phoneNoId" id="phoneNoId" value="@data.phoneNoId" />
                             <input type="hidden" name="personId" id="personId" value="@data.personId" />
-                            <button type="submit" window.location.href='@Url.Action("UpdatePhone","Person")'>Update</button>
+                            <button type="submit" class="material-icons" style="border:0px" window.location.href='@Url.Action("UpdatePhone","Person")'>edit</button>
                         </form>
                     </td>
-                    <td><input type="button" onclick="Delete()" id="delete" value="Delete" /></td>
+                    <td><button type="button" class="material-icons" onclick="Delete()" style="color:red; border:0px" id="delete">delete_sweep</button></td>
 
                 </tr>
                 count++;
@@ -65,9 +92,9 @@
 </table>
 
         <form method="post" asp-controller="Person" asp-action="AddPhone">
-        <input type="hidden" name="personId" value="@Model.FirstOrDefault()?.personId">
-        <button type="submit" window.location.href='@Url.Action("AddPhone","Person")'>Add Phone</button>
+        <input type="hidden" name="personId" value=@ViewBag.personId />
+        <button type="submit" class="btn">Add Phone</button>
         </form>
         <br />
 
-<Button type="submit" onclick="Back()">Back</Button>
+<Button type="submit" class="btn1" onclick="Back()">Back</Button>

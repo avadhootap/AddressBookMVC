@@ -1,13 +1,47 @@
 ﻿@model AddressBook.Modules.Person
-<h3>Add Phone</h3>
+<h3 style="text-align:center; color:darkblue">ADD PHONE</h3>
+<hr />
+
 <script>
-     function add(personId) {
-        window.location.href = '@Url.Action("GetPhone", "Person")' + '?personId=' + personId;
+    function Back(){
+        var Id = '@Model.personId';
+        window.location.href = '@Url.Action("GetPhone","Person")?personId=' + Id;
     }
 </script>
-<form method="post" asp-controller="Phone" asp-action="AddPhone" onsubmit="add('@Model.personId')">
-    <lable for="phoneNo">Phone No</lable>
-    <input type="text" name="PhoneNo" id="PhoneNo" /><br />
+
+<style>
+    .add {
+        width: 70%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    .btn {
+        background-color: #4CAF50;
+    }
+
+   .btn:hover {
+            background-color: green;
+    }
+
+    .btn1 {
+        background-color: grey;
+        color: aliceblue;
+        border: 0px
+    }
+
+    .btn1:hover {
+            background-color: black;
+    }
+</style>
+
+<form method="post" asp-controller="Phone" asp-action="AddPhone" >
+    <lable for="phoneNo">Phone No</lable><br />
+    <input type="text" class="add" name="PhoneNo" id="PhoneNo" /><br />
 
     <lable for="phoneNoType">Type</lable><br />
 
@@ -29,7 +63,8 @@
 
     <input type="hidden" name="personId" id="PersonId" value="@Model.personId" />
 
-    <input type="submit"/>
-</form>
+    <input type="submit" class="btn" />
+</form><br />
+<button type="button" class="btn1" onclick="Back()">Back</button>
 
 <br />

@@ -1,84 +1,44 @@
-﻿@*@model AddressBook.Modules.EmailAddress
-<h3>Update Email</h3>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script type="text/javascript" src="https://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>*@
-@*
-<form method="post" asp-controller="Email" asp-action="UpdateEmail">
-    <input type="hidden" name="Eid" id="Eid" value="@Model.EId" />
-        <lable for="EmailAdd">Email Address</lable>
-        <input type="text" name="EmailAdd" id="EmailAdd" value="@Model.EmailAdd" /><br />
-        <lable for="EmailType">Email Type</lable><br />
+﻿@model AddressBook.Modules.EmailAddress
+<h3 style="text-align:center; color:darkblue">UPDATE EMAIL</h3>
+<hr />
 
-    <input type="radio" name="EmailType" id="Work" value="Work" @(Model.EmailType.ToString()=="Work" ? "checked":"")/>
-    <lable for="Work">Work</lable>&nbsp;&nbsp;
-
-    <input type="radio" name="EmailType" id="Home" value="Home" @(Model.EmailType.ToString() == "Home" ? "checked" : "") />
-    <lable for="Home">Home</lable>&nbsp;&nbsp;
-
-    <input type="radio" name="EmailType" id="Other" value="Other" @(Model.EmailType.ToString() == "Other" ? "checked" : "") />
-    <lable for="Other">Other</lable><br /><br />
-
-    <input type="hidden" name="personId" id="PersonId" value="@Model.personId" />
-
-    <button type="submit">Submit</button>
-    </form><br />*@
-@*<form>
-    <input type="hidden" name="Eid" id="Eid" value="@Model.EId" />
-    <lable for="EmailAdd">Email Address</lable>
-    <input type="text" name="EmailAdd" id="EmailAdd" value="@Model.EmailAdd" />
-    <br />
-    <lable for="EmailType">Email Type</lable>
-    <br />
-
-    <input type="radio" name="EmailType" id="Work" value="Work" @(Model.EmailType.ToString() == "Work" ? "checked" : "") />
-    <lable for="Work">Work</lable>&nbsp;&nbsp;
-
-    <input type="radio" name="EmailType" id="Home" value="Home" @(Model.EmailType.ToString() == "Home" ? "checked" : "") />
-    <lable for="Home">Home</lable>&nbsp;&nbsp;
-
-    <input type="radio" name="EmailType" id="Other" value="Other" @(Model.EmailType.ToString() == "Other" ? "checked" : "") />
-    <lable for="Other">Other</lable>
-    <br />
-    <br />
-
-    <input type="hidden" name="personId" id="personId" value="@Model.personId" />
-
-    <input type="button" id="updateEmail" onclick="update()" value="Update" />
-</form>*@
-@*<script>
-    function update(){
-        var email = {
-            Eid : $("#Eid").val();
-            EmailType : $("#EmailType").val();
-            personId : $("#PersonId").val();
-        };
-        $.ajax({
-            type: "POST",
-            url: "/Email/UpdateEmail",
-            data: JSON.stringify(email),
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            success: function (response) {
-                if (response) {
-                    alert("email record updated.");
-                } else {
-                    alert("email not found.");
-                }
-            }
-            error:
-        });
-    }
-       
-</script>*@
-
-@model AddressBook.Modules.EmailAddress
-<h3>Update Email</h3>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script type="text/javascript" src="https://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
+
+<style>
+    .update {
+        width: 50%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    .btn {
+        background-color: #4CAF50;
+    }
+
+    .btn:hover {
+       background-color: green;
+    }
+
+    .btn1 {
+        background-color: grey;
+        color: aliceblue;
+        border: 0px
+    }
+
+    .btn1:hover {
+         background-color: black;
+    }
+
+</style>
 <form>
     <input type="hidden" name="EId" id="EId" value="@Model.EId" />
-    <label for="EmailAdd">Email Address</label>
-    <input type="text" name="EmailAdd" id="EmailAdd" value="@Model.EmailAdd" />
+    <label for="EmailAdd">Email Address</label><br />
+    <input type="text" name="EmailAdd" class="update" id="EmailAdd" value="@Model.EmailAdd" />
     <br />
     <label for="EmailType">Email Type</label>
     <br />
@@ -91,8 +51,8 @@
     <br />
     <br />
     @*<input type="hidden" name="personId" id="personId" value="@Model.personId" />*@
-    <input type="button" id="updateEmail" onclick="update(event)" data-personId='@Model.personId' value="Update" />
-    <input type="button" onclick="Back()" value="Back"/>
+    <input type="button" id="updateEmail" class="btn" onclick="update(event)" data-personId='@Model.personId' value="Update" /><br /><br />
+    <input type="button" class="btn1" onclick="Back()" value="Back"/>
 </form>
 
 <script>
@@ -131,7 +91,8 @@
     }
 
     function Back(){
-        window.location.href = '@Url.Action("GetPerson", "Person")'
+        var Id = '@Model.personId';
+        window.location.href = '@Url.Action("GetEmail","Person")?personId=' + Id;
     }
         
 </script>

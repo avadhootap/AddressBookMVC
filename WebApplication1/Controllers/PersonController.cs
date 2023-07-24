@@ -103,10 +103,7 @@ namespace WebApplication1.Controllers
         {
             EmailHelper emailhelper=new EmailHelper();
             List<EmailAddress> emailAddress = emailhelper.GetAllEmails(personId);
-            foreach(EmailAddress email in emailAddress)
-            {
-                Console.WriteLine(email.EmailAdd);
-            }
+            ViewBag.personid=personId;
             return View("../Email/GetEmail", emailAddress);
         }
 
@@ -150,7 +147,8 @@ namespace WebApplication1.Controllers
         {
             PhoneHelper phoneHelper = new PhoneHelper();
             List<PhoneNo>phoneNos=phoneHelper.GetAllPhoneNos(PersonId);
-            return View("../Phone/GetPhone",phoneNos);
+            ViewBag.personId = PersonId;
+            return View("../Phone/GetPhone", phoneNos);  
         }
 
         public IActionResult DeletePhone(string phoneNoId)

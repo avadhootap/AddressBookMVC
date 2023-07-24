@@ -1,16 +1,49 @@
 ﻿@model AddressBook.Modules.PhoneNo
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script type="text/javascript" src="https://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
-<h3>Update phone No.</h3>
+<h3 style="text-align:center; color:darkblue">UPDATE PHONE NO.</h3>
+<hr />
+
+<style>
+    .update {
+        width: 50%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    .btn {
+        background-color: #4CAF50;
+    }
+
+    .btn:hover {
+            background-color: green;
+    }
+
+    .btn1 {
+        background-color: grey;
+        color:aliceblue;
+        border:0px
+    }
+
+    .btn1:hover {
+         background-color: black;
+    }
+
+
+</style>
 <form>
-    <label for="phoneNo">Phone Number</label>
-    <input type="hidden" name="phoneNoId" id="phoneNoId" value="@Model.phoneNoId" />
-    <input name="phoneNo" id="phoneNo" value="@Model.phoneNo" /><br />
+    <label for="phoneNo">Phone Number</label><br />
+    <input type="hidden"  name="phoneNoId" id="phoneNoId" value="@Model.phoneNoId" />
+    <input name="phoneNo" class="update" id="phoneNo" value="@Model.phoneNo" /><br />
 
     <lable for="phoneNoType">Type</lable><br />
 
     
-    <input type="radio" id="phoneNoType" name="phoneNoType" value="Home" @(Model.phoneNoType.ToString() == "Home" ? "checked " : "") />
+    <input type="radio" id="phoneNoType"  name="phoneNoType" value="Home" @(Model.phoneNoType.ToString() == "Home" ? "checked " : "") />
     <label for="Home">Home</label>&nbsp;&nbsp;
 
     
@@ -27,8 +60,9 @@
 
     <input type="hidden" name="personId" id="personId" value="@Model.personId" /><br /><br />
 
-    <input type="button" id="UpdatePhone" onclick="update()"value="Update" />
-</form>
+    <input type="button" id="UpdatePhone" class="btn" onclick="update()"value="Update" />
+</form><br />
+    <input type="button" class="btn1" onclick="Back()" value="BACK" />
 <script>
     function update(){
         var phone = {
@@ -55,6 +89,11 @@
         }
     });
        
+    }
+
+    function Back(){
+        var Id = '@Model.personId';
+        window.location.href = '@Url.Action("GetPhone","Person")?personId=' + Id;
     }
 
 </script>

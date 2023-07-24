@@ -1,9 +1,13 @@
 ﻿@model IEnumerable<AddressBook.Modules.EmailAddress>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 <script>
     function Back() {
         window.location.href = '@Url.Action("GetPerson","Person")'
     }
 </script>
+
 <script>
     function DeleteEmail() {
         var Id=$("#EId").val();
@@ -25,9 +29,32 @@
         location.reload();
     }
 </script>
+
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script type="text/javascript" src="https://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
-<h3>Email List</h3>
+
+<style>
+    .btn {
+        background-color: #4CAF50;
+    }
+
+    .btn:hover {
+            background-color: green;
+    }
+
+    .btn1 {
+        background-color: grey;
+        color: aliceblue;
+        border: 0px
+    }
+
+    .btn1:hover {
+            background-color: black;
+    }
+</style>
+
+<h3 style="text-align:center; color:darkblue">EMAIL LIST</h3>
+<hr />
 
 <table border="1" class="table table-bordered table-responsive">
     <thead>
@@ -53,11 +80,11 @@
                         <form method="post" asp-action="UpdateEmail" asp-controller="Person">
                             <input type="hidden" name="EId" id="EId" value="@data.EId" />
                             <input type="hidden" name="personId" id="personId" value="@data.personId" />
-                            <button type="submit" window.location.href='@Url.Action("UpdateEmail","Person")' >Update</button>
+                            <button type="submit" class="material-icons" style="border:0px" window.location.href='@Url.Action("UpdateEmail","Person")'>edit</button>
                         </form>
                     </td>
                  <td>
-                        <input type="button" id="DeleteEmail" onclick="DeleteEmail()" value="Delete" />
+                        <button type="button" id="DeleteEmail" class="material-icons" style="color:red; border:0px" onclick="DeleteEmail()">delete_sweep</button>
                  </td>
                     
                 </tr>
@@ -67,5 +94,10 @@
         }
     </tbody>
 </table>
-<Button type="submit" onclick="Back()">Back</Button>
+<form method="post" asp-controller="Person" asp-action="AddEmail">
+    <input type="hidden" name="personId" value=@ViewBag.personid>
+    <button type="submit" class="btn" window.location.href='@Url.Action("AddEmail", "Person")'>Add Email</button>
+</form>
+<br />
+<Button type="submit" class="btn1" onclick="Back()">Back</Button>
 
