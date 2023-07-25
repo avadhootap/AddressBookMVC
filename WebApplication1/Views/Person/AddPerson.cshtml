@@ -7,62 +7,33 @@
         window.location.href = '@Url.Action("GetPerson", "Person")'
     }
 </script>
-<style>
-    .addPerson{
-        width: 70%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-    }
 
-    .btn {
-        background-color: #4CAF50;
-    }
-
-    .btn:hover {
-            background-color: green;
-    }
-
-    .btn1 {
-        background-color: black ;
-        color:antiquewhite
-        
-    }
-
-        .btn1:hover {
-            background-color: darkgrey;
-        }
-
-</style>
 <div>
     <form method="post" asp-controller="Person" asp-action="Add">
         <label for="title">Title</label><br />
-        <select name="title" class="addPerson" id="title">
+        <select name="title" class="add" id="title">
             <option value="Mr.">MR</option>
             <option value="Mrs.">MRS</option>
         </select><br />
 
         <label for="firstName">FirstName</label><br />
-        <input type="text" class="addPerson" name="firstName" id="firstName" placeholder="FirstName" />&nbsp;&nbsp;&nbsp;
+        <input type="text" class="add" name="firstName" id="firstName" placeholder="FirstName" />&nbsp;&nbsp;&nbsp;
         @Html.ValidationMessageFor(model => model.firstName,"", new { @class = "text-danger" })<br />
 
         <label for="lastName">LastName</label><br />
-        <input type="text" class="addPerson" name="lastName" id="lastName" placeholder="LastName"/>&nbsp;&nbsp;&nbsp;
+        <input type="text" class="add" name="lastName" id="lastName" placeholder="LastName"/>&nbsp;&nbsp;&nbsp;
         @Html.ValidationMessageFor(item=>item.lastName,"", new { @class = "text-danger" })<br />
 
         <label for="middleName">MiddleName</label><br />
-        <input type="text" class="addPerson" name="middleName" id="middleName" placeholder="MiddleName"/>&nbsp;&nbsp;&nbsp;
+        <input type="text" class="add" name="middleName" id="middleName" placeholder="MiddleName"/>&nbsp;&nbsp;&nbsp;
         @Html.ValidationMessageFor(item=>item.middleName,"", new { @class = "text-danger" })<br />
 
         <label for="age">Age</label><br />
-        <input type="number" class="addPerson" name="age" id="age" placeholder="Age"/>&nbsp;&nbsp;&nbsp;
+        <input type="number" class="add" name="age" id="age" placeholder="Age"/>&nbsp;&nbsp;&nbsp;
         @Html.ValidationMessageFor(item=>item.age,"", new { @class = "text-danger" })<br />
 
         <label for="dob">Date Of Birth</label><br />
-        <input type="date" class="addPerson" name="dob" id="dob" placeholder="Date of Birth"/>&nbsp;&nbsp;&nbsp;
+        <input type="date" class="add" name="dob" id="dob" placeholder="Date of Birth"/>&nbsp;&nbsp;&nbsp;
         @Html.ValidationMessageFor(item=>item.DOB,"", new { @class = "text-danger" })<br />
 
         <label for="gender">Gender </label><br />

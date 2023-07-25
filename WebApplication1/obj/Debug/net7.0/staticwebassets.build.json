@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "HSmEp3kLIQUJnkDBlrgM+2WOuxyiZW7NlZ5zfPN3cn8=",
+  "Hash": "VqdTEuPy5GI1Eo1bPe4goWLCebpJuKV7vjHIwfE9adI=",
   "Source": "WebApplication1",
   "BasePath": "_content/WebApplication1",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Avadhoot\\Desktop\\Training\\AddressBookMVC\\AddressBookMVC\\AddressBookMVC\\WebApplication1\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\WebApplication1.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\Avadhoot\\Desktop\\Training\\AddressBookMVC\\AddressBookMVC\\AddressBookMVC\\WebApplication1\\wwwroot\\css\\addressbook.css",
+      "SourceId": "WebApplication1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Avadhoot\\Desktop\\Training\\AddressBookMVC\\AddressBookMVC\\AddressBookMVC\\WebApplication1\\wwwroot\\",
+      "BasePath": "_content/WebApplication1",
+      "RelativePath": "css/addressbook.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\addressbook.css"
     },
     {
       "Identity": "C:\\Users\\Avadhoot\\Desktop\\Training\\AddressBookMVC\\AddressBookMVC\\AddressBookMVC\\WebApplication1\\wwwroot\\css\\site.css",

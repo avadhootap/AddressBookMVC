@@ -4,50 +4,32 @@
         window.location.href = '@Url.Action("GetPerson","Person")'
     }
 </script>
-<style>
-    .updatePerson {
-        width: 70%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-    }
 
-    .btn {
-        background-color: #4CAF50;
-    }
-
-    .btn:hover {
-            background-color: green;
-    }
-</style>
 <h1 style="text-align:center; color:darkblue">EDIT PERSON</h1>
 <hr />
 <form method="post" asp-controller="Person" asp-action="Edit">
     <input type="hidden" name="personId" value="@Model.personId" />
 
-    <label for="title">Title</label><br />
-    <select name="title" id="title">
+    <label for="title">Title </label><br />
+    <select name="title" id="title" class="add">
         <option value="Mr.">MR</option>
         <option value="Mrs.">MRS</option>
     </select><br />
 
     <label for="firstName">FirstName</label><br />
-    <input type="text" class="updatePerson" name="firstName" id="firstName" checked="checked" value="@Model.firstName" /><br />
+    <input type="text" class="add" name="firstName" id="firstName" checked="checked" value="@Model.firstName" /><br />
 
     <label for="lastName">LastName</label><br />
-    <input type="text" class="updatePerson" name="lastName" id="lastName" value="@Model.lastName" /><br />
+    <input type="text" class="add" name="lastName" id="lastName" value="@Model.lastName" /><br />
 
     <label for="middleName">MiddleName</label><br />
-    <input type="text" class="updatePerson" name="middleName" id="middleName" value="@Model.middleName" /><br />
+    <input type="text" class="add" name="middleName" id="middleName" value="@Model.middleName" /><br />
 
     <label for="age">Age</label><br />
-    <input type="number" class="updatePerson" name="age" id="age" value="@Model.age" /><br />
+    <input type="number" class="add" name="age" id="age" value="@Model.age" /><br />
 
     <label for="dob">Date Of Birth</label><br />
-    <input type="date" class="updatePerson" name="dob" id="dob" value="@Model.DOB.ToString()" /><br />
+    <input type="datetime" class="add" name="dob" id="dob" value="@Model.DOB.ToString()" /><br />
     
     <label for="gender">Gender</label><br />
 
@@ -75,4 +57,4 @@
     <button type="submit" class="btn">Update</button>
   
 </form><br />
-<button type="submit" onclick="Back()">Back</button>
+<button type="submit" class="btn1" onclick="Back()">Back</button>

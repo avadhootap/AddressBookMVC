@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\WebApplication1.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\Avadhoot\\Desktop\\Training\\AddressBookMVC\\AddressBookMVC\\AddressBookMVC\\WebApplication1\\wwwroot\\css\\addressbook.css",
+      "PackagePath": "staticwebassets\\css\\addressbook.css"
+    },
+    {
       "Id": "C:\\Users\\Avadhoot\\Desktop\\Training\\AddressBookMVC\\AddressBookMVC\\AddressBookMVC\\WebApplication1\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

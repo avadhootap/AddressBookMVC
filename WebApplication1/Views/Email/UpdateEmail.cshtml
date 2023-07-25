@@ -5,40 +5,11 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script type="text/javascript" src="https://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
 
-<style>
-    .update {
-        width: 50%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-    }
 
-    .btn {
-        background-color: #4CAF50;
-    }
-
-    .btn:hover {
-       background-color: green;
-    }
-
-    .btn1 {
-        background-color: grey;
-        color: aliceblue;
-        border: 0px
-    }
-
-    .btn1:hover {
-         background-color: black;
-    }
-
-</style>
 <form>
     <input type="hidden" name="EId" id="EId" value="@Model.EId" />
     <label for="EmailAdd">Email Address</label><br />
-    <input type="text" name="EmailAdd" class="update" id="EmailAdd" value="@Model.EmailAdd" />
+    <input type="text" name="EmailAdd" class="add" id="EmailAdd" value="@Model.EmailAdd" />
     <br />
     <label for="EmailType">Email Type</label>
     <br />

@@ -7,6 +7,8 @@ namespace AddressBook.Modules
     {
         [Required]
         public string phoneNoId { get; set; }
+
+        [Required(ErrorMessage ="Enter Type")]
         public PhoneNoType phoneNoType { get; set; }
 
         [Required(ErrorMessage ="Enter Phone no")]

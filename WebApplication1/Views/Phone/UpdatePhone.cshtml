@@ -4,41 +4,11 @@
 <h3 style="text-align:center; color:darkblue">UPDATE PHONE NO.</h3>
 <hr />
 
-<style>
-    .update {
-        width: 50%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-    }
 
-    .btn {
-        background-color: #4CAF50;
-    }
-
-    .btn:hover {
-            background-color: green;
-    }
-
-    .btn1 {
-        background-color: grey;
-        color:aliceblue;
-        border:0px
-    }
-
-    .btn1:hover {
-         background-color: black;
-    }
-
-
-</style>
 <form>
     <label for="phoneNo">Phone Number</label><br />
     <input type="hidden"  name="phoneNoId" id="phoneNoId" value="@Model.phoneNoId" />
-    <input name="phoneNo" class="update" id="phoneNo" value="@Model.phoneNo" /><br />
+    <input name="phoneNo" class="add" id="phoneNo" value="@Model.phoneNo" /><br />
 
     <lable for="phoneNoType">Type</lable><br />
 

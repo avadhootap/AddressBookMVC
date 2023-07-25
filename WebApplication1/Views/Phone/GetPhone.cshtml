@@ -2,6 +2,7 @@
 <h3 style="text-align:center; color:darkblue">PHONE NO LIST</h3>
 <hr />
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 <script>
     function Back() {
         window.location.href = '@Url.Action("GetPerson","Person")'
@@ -17,41 +18,20 @@
             data: { phoneNoId:Id },
             success:function(response){
                 if(response){
-                    alert("Phone No Deleted Succesfully...!")
+                    alert("Phone No Deleted Succesfully...!");
                 }
                 else(
-                    alert("Failed to Delete Phone No")
+                    alert("Failed to Delete Phone No");
                 )
             },
             error:function(){
-                alert("Failed to Delete...")
+                alert("Failed to Delete...");
             }
         });
         location.reload();
     }
 </script>
 
-<style>
-    .btn {
-        background-color: #4CAF50;
-    }
-
-        .btn:hover {
-            background-color: green;
-        }
-
-    .btn1 {
-        background-color: #ccc;
-        color: black;
-        border-radius:8px;
-        border: 0px
-    }
-
-   .btn1:hover {
-            background-color: black;
-            color:white;
-    }
-</style>
 
 <table border="1" class="table table-bordered table-responsive">
     <thead>

@@ -11,35 +11,6 @@
     
 </script>
 
-<style>
-    .add {
-        width: 50%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-    }
-
-    .btn {
-        background-color: #4CAF50;
-    }
-
-        .btn:hover {
-            background-color: green;
-        }
-
-    .btn1 {
-        background-color: grey;
-        color: aliceblue;
-        border: 0px
-    }
-
-        .btn1:hover {
-            background-color: black;
-        }
-</style>
 <form method="post" asp-controller="Email" asp-action="AddEmail">
     <lable for="EmailAdd">Email Address</lable><br />
     <input type="text" class="add" name="EmailAdd" id="EmailAdd" /><br />
