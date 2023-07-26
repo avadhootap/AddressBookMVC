@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\Avadhoot\\Desktop\\Training\\AddressBookMVC\\AddressBookMVC\\AddressBookMVC\\WebApplication1\\wwwroot\\js\\AddressBook.js",
+      "PackagePath": "staticwebassets\\js\\AddressBook.js"
+    },
+    {
       "Id": "C:\\Users\\Avadhoot\\Desktop\\Training\\AddressBookMVC\\AddressBookMVC\\AddressBookMVC\\WebApplication1\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

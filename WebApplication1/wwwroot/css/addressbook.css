@@ -2,9 +2,9 @@
     background-color: #4CAF50;
 }
 
-.btn:hover {
-    background-color: green;
-}
+    .btn:hover {
+        background-color: green;
+    }
 
 .btn1 {
     background-color: grey;
@@ -12,9 +12,9 @@
     border: 0px
 }
 
-.btn1:hover {
-    background-color: black;
- }
+    .btn1:hover {
+        background-color: black;
+    }
 
 .add {
     width: 70%;
@@ -23,6 +23,7 @@
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+
 .main, .secondary {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));

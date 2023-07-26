@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "VqdTEuPy5GI1Eo1bPe4goWLCebpJuKV7vjHIwfE9adI=",
+  "Hash": "6Hr4oGXWTooZnXzwUVFpf5pNNMgHsqxUr3/i+/kjcvE=",
   "Source": "WebApplication1",
   "BasePath": "_content/WebApplication1",
   "Mode": "Default",
@@ -100,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\Avadhoot\\Desktop\\Training\\AddressBookMVC\\AddressBookMVC\\AddressBookMVC\\WebApplication1\\wwwroot\\js\\AddressBook.js",
+      "SourceId": "WebApplication1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Avadhoot\\Desktop\\Training\\AddressBookMVC\\AddressBookMVC\\AddressBookMVC\\WebApplication1\\wwwroot\\",
+      "BasePath": "_content/WebApplication1",
+      "RelativePath": "js/AddressBook.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\AddressBook.js"
     },
     {
       "Identity": "C:\\Users\\Avadhoot\\Desktop\\Training\\AddressBookMVC\\AddressBookMVC\\AddressBookMVC\\WebApplication1\\wwwroot\\js\\site.js",

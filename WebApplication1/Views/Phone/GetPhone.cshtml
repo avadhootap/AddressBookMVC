@@ -2,6 +2,7 @@
 <h3 style="text-align:center; color:darkblue">PHONE NO LIST</h3>
 <hr />
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
     function Back() {
@@ -10,25 +11,27 @@
 </script>
 
 <script>
-    function Delete(){
+    function DeletePhone() {
         var Id = $("#phoneNoId").val();
+        console.log(Id);
         $.ajax({
-            type:"POST",
+            type: "POST",
             url: "/Person/DeletePhone",
-            data: { phoneNoId:Id },
-            success:function(response){
-                if(response){
-                    alert("Phone No Deleted Succesfully...!");
+            data: { phoneNoId: Id },
+            success: function (response) {
+                if (response) {
+                    alert("Phone No Deleted Succesfully...!")
+                    location.reload();
                 }
-                else(
+                else {
                     alert("Failed to Delete Phone No");
-                )
+                }
             },
-            error:function(){
+            error: function () {
                 alert("Failed to Delete...");
             }
         });
-        location.reload();
+        
     }
 </script>
 
@@ -60,7 +63,7 @@
                             <button type="submit" class="material-icons" style="border:0px" window.location.href='@Url.Action("UpdatePhone","Person")'>edit</button>
                         </form>
                     </td>
-                    <td><button type="button" class="material-icons" onclick="Delete()" style="color:red; border:0px" id="delete">delete_sweep</button></td>
+                    <td><button type="button" class="material-icons" onclick="DeletePhone()" style="color:red; border:0px">delete_sweep</button></td>
 
                 </tr>
                 count++;

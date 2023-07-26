@@ -13,7 +13,7 @@ namespace AddressBook.Helper
         {
             DataAccess dataAccess = new DataAccess();
             string query = "insert into emails(EId,EmailAdd,EmailType,personId,isDelete)values(@EId,@EmailAdd,@EmailType,@personId,@isDelete)";
-            Dictionary<string, object> data = new Dictionary<String, object>
+            Dictionary<string, object> data = new Dictionary<string, object>
             {
                 {"@EId",emailAddress.EId=Guid.NewGuid().ToString() },
                 {"@EmailAdd",emailAddress.EmailAdd},
